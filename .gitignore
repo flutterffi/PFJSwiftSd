@@ -1,0 +1,7 @@
+.DS_Store
+DerivedData/
+build/
+.build/
+xcuserdata/
+*.xcuserstate
+projects/01_study_dashboard_app/bookmarks.json
