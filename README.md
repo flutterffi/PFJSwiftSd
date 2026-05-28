@@ -113,6 +113,14 @@ Current project:
 
 1. `01_study_dashboard_app`
 
+### 7. Apps
+
+The `apps/` folder turns reusable training logic into a minimal runnable SwiftUI shell.
+
+Current app:
+
+1. `StudyDashboardApp`
+
 This project practices:
 
 - building a learning dashboard
@@ -133,6 +141,7 @@ PFJSwiftSd/
   architecture/               # feature-state and reducer-style practice
   swiftui/                    # SwiftUI lessons from composition to async screens
   projects/                   # larger feature practice
+  apps/                       # runnable SwiftUI app shells
   CHANGELOG.md                # short progress log
 ```
 
@@ -158,6 +167,8 @@ swiftc \
   -o .build/study_dashboard_feature
 
 ./.build/study_dashboard_feature
+
+swift build --product StudyDashboardApp
 ```
 
 SwiftUI files are meant to be opened in Xcode and explored inside an Apple platform app target.

@@ -1,6 +1,6 @@
 import Foundation
 
-func makeSampleLessons() -> [Lesson] {
+public func makeSampleLessons() -> [Lesson] {
     [
         Lesson(id: UUID(uuidString: "11111111-1111-1111-1111-111111111111")!, title: "Constants and Variables", track: .foundations, estimatedMinutes: 15),
         Lesson(id: UUID(uuidString: "22222222-2222-2222-2222-222222222222")!, title: "Optionals and Guard", track: .foundations, estimatedMinutes: 20),
@@ -11,7 +11,7 @@ func makeSampleLessons() -> [Lesson] {
     ]
 }
 
-func makeDashboardEnvironment(bookmarksFileURL: URL) -> DashboardEnvironment {
+public func makeDashboardEnvironment(bookmarksFileURL: URL) -> DashboardEnvironment {
     let persistence = BookmarkPersistence(fileURL: bookmarksFileURL)
 
     return DashboardEnvironment(

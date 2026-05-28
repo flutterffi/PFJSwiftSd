@@ -78,6 +78,15 @@ swiftc \
 ./.build/bookmark_persistence_tests
 ```
 
+## SwiftUI App Shell
+
+The reusable dashboard core now also powers a minimal macOS SwiftUI shell:
+
+```bash
+swift build --product StudyDashboardApp
+swift run StudyDashboardApp
+```
+
 ## Good Architecture Practice
 
 - keep domain models independent from views

@@ -1,16 +1,26 @@
 import Foundation
 
-struct DashboardEnvironment {
-    var fetchLessons: () async throws -> [Lesson]
-    var loadBookmarks: () throws -> Set<UUID>
-    var saveBookmarks: (Set<UUID>) throws -> Void
+public struct DashboardEnvironment {
+    public var fetchLessons: () async throws -> [Lesson]
+    public var loadBookmarks: () throws -> Set<UUID>
+    public var saveBookmarks: (Set<UUID>) throws -> Void
+
+    public init(
+        fetchLessons: @escaping () async throws -> [Lesson],
+        loadBookmarks: @escaping () throws -> Set<UUID>,
+        saveBookmarks: @escaping (Set<UUID>) throws -> Void
+    ) {
+        self.fetchLessons = fetchLessons
+        self.loadBookmarks = loadBookmarks
+        self.saveBookmarks = saveBookmarks
+    }
 }
 
-struct DashboardStore {
-    private(set) var state: DashboardState
-    let environment: DashboardEnvironment
+public struct DashboardStore {
+    public private(set) var state: DashboardState
+    public let environment: DashboardEnvironment
 
-    init(
+    public init(
         state: DashboardState = DashboardState(),
         environment: DashboardEnvironment
     ) {
@@ -18,7 +28,7 @@ struct DashboardStore {
         self.environment = environment
     }
 
-    mutating func send(_ action: DashboardAction) async {
+    public mutating func send(_ action: DashboardAction) async {
         switch action {
         case .loadTapped:
             state.isLoading = true

@@ -1,9 +1,13 @@
 import Foundation
 
-struct BookmarkPersistence {
-    let fileURL: URL
+public struct BookmarkPersistence {
+    public let fileURL: URL
 
-    func load() throws -> Set<UUID> {
+    public init(fileURL: URL) {
+        self.fileURL = fileURL
+    }
+
+    public func load() throws -> Set<UUID> {
         guard FileManager.default.fileExists(atPath: fileURL.path) else {
             return []
         }
@@ -13,7 +17,7 @@ struct BookmarkPersistence {
         return Set(values)
     }
 
-    func save(_ bookmarks: Set<UUID>) throws {
+    public func save(_ bookmarks: Set<UUID>) throws {
         let sorted = bookmarks
             .map(\.uuidString)
             .sorted()
