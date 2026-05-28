@@ -9,6 +9,10 @@ The goal is simple:
 - practice concurrency, state management, and architecture with small files
 - grow toward real app-level thinking instead of isolated syntax drills
 
+## Official References
+
+Use [OFFICIAL_LEARNING_LINKS.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/OFFICIAL_LEARNING_LINKS.md) as the central index for Swift, SwiftUI, and Xcode documentation from Swift.org and Apple Developer.
+
 ## Learning Path
 
 ### 1. Foundations
@@ -193,3 +197,10 @@ Good modifications to try:
 - move screen logic from a view into a store
 - add cancellation to one async flow
 - add one more store test before changing UI behavior
+
+## Study Companion
+
+For concentrated reading sessions, keep these two pages side by side:
+
+- [foundations/README.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/foundations/README.md)
+- [docs/OFFICIAL_LEARNING_LINKS.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/OFFICIAL_LEARNING_LINKS.md)
