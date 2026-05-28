@@ -38,7 +38,44 @@ This example demonstrates:
 Run it like this:
 
 ```bash
-swift -module-cache-path .build/ModuleCache projects/01_study_dashboard_app/study_dashboard_feature.swift
+swiftc \
+  projects/01_study_dashboard_app/domain/LessonModels.swift \
+  projects/01_study_dashboard_app/domain/DashboardStore.swift \
+  projects/01_study_dashboard_app/persistence/BookmarkPersistence.swift \
+  projects/01_study_dashboard_app/support/SampleData.swift \
+  projects/01_study_dashboard_app/study_dashboard_feature.swift \
+  -o .build/study_dashboard_feature
+
+./.build/study_dashboard_feature
+```
+
+## Verification
+
+The project now has runnable test-style files:
+
+1. `tests/dashboard_store_tests.swift`
+2. `tests/bookmark_persistence_tests.swift`
+
+Run them like this:
+
+```bash
+swiftc \
+  projects/01_study_dashboard_app/domain/LessonModels.swift \
+  projects/01_study_dashboard_app/domain/DashboardStore.swift \
+  projects/01_study_dashboard_app/persistence/BookmarkPersistence.swift \
+  projects/01_study_dashboard_app/support/SampleData.swift \
+  projects/01_study_dashboard_app/tests/dashboard_store_tests.swift \
+  -o .build/dashboard_store_tests
+
+./.build/dashboard_store_tests
+
+swiftc \
+  projects/01_study_dashboard_app/domain/LessonModels.swift \
+  projects/01_study_dashboard_app/persistence/BookmarkPersistence.swift \
+  projects/01_study_dashboard_app/tests/bookmark_persistence_tests.swift \
+  -o .build/bookmark_persistence_tests
+
+./.build/bookmark_persistence_tests
 ```
 
 ## Good Architecture Practice

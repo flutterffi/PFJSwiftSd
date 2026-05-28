@@ -120,6 +120,7 @@ This project practices:
 - splitting screen state from reusable domain logic
 - search and bookmark workflows
 - local persistence for lightweight app state
+- runnable verification for domain and persistence logic
 - preparing for a multi-screen SwiftUI app
 
 ## Repository Layout
@@ -148,7 +149,15 @@ swift language/01_value_semantics_and_copy_on_write.swift
 swift language/02_protocols_generics_and_type_erasure.swift
 swift concurrency/01_async_await_and_task_group.swift
 swift architecture/01_feature_store.swift
-swift projects/01_study_dashboard_app/study_dashboard_feature.swift
+swiftc \
+  projects/01_study_dashboard_app/domain/LessonModels.swift \
+  projects/01_study_dashboard_app/domain/DashboardStore.swift \
+  projects/01_study_dashboard_app/persistence/BookmarkPersistence.swift \
+  projects/01_study_dashboard_app/support/SampleData.swift \
+  projects/01_study_dashboard_app/study_dashboard_feature.swift \
+  -o .build/study_dashboard_feature
+
+./.build/study_dashboard_feature
 ```
 
 SwiftUI files are meant to be opened in Xcode and explored inside an Apple platform app target.
@@ -172,3 +181,4 @@ Good modifications to try:
 - replace an if-else branch with enum-driven rendering
 - move screen logic from a view into a store
 - add cancellation to one async flow
+- add one more store test before changing UI behavior

@@ -7,4 +7,6 @@
 - added language, concurrency, architecture, and SwiftUI lesson folders
 - added SwiftUI foundation lessons for composition and list-driven UI
 - added a runnable study dashboard feature with search and bookmark persistence
+- extracted the dashboard core into domain and persistence files
+- added runnable store and persistence verification scripts
 - added a first project direction for a study dashboard app
