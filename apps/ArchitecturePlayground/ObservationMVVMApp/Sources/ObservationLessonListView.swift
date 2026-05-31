@@ -16,10 +16,36 @@ struct ObservationLessonListView: View {
             content
         }
         .navigationTitle("Observation MVVM App")
+        .navigationDestination(for: ObservationRoute.self) { route in
+            switch route {
+            case .bookmarks:
+                ObservationBookmarksView(model: model)
+            case let .detail(lesson):
+                ObservationLessonDetailView(
+                    lesson: lesson,
+                    onToggleBookmark: {
+                        model.toggleBookmark(for: lesson.id)
+                    }
+                )
+            }
+        }
         .searchable(
             text: $model.filter.query,
             prompt: "Search lessons or tracks"
         )
+        .sheet(item: $model.activeSheet) { sheet in
+            switch sheet {
+            case .weeklyReview:
+                ObservationWeeklyReviewView(summary: model.weeklySummary)
+            }
+        }
+        .alert("Bookmark Error", isPresented: errorBinding) {
+            Button("OK", role: .cancel) {
+                model.dismissError()
+            }
+        } message: {
+            Text(model.errorMessage ?? "")
+        }
     }
 
     private var header: some View {
@@ -36,6 +62,16 @@ struct ObservationLessonListView: View {
             Toggle("Bookmarks Only", isOn: $model.filter.bookmarksOnly)
                 .toggleStyle(.switch)
                 .frame(maxWidth: 180)
+
+            Button("Bookmarks") {
+                model.showBookmarks()
+            }
+            .buttonStyle(.bordered)
+
+            Button("Weekly Review") {
+                model.showWeeklyReview()
+            }
+            .buttonStyle(.bordered)
 
             Picker("Track", selection: $model.filter.selectedTrack) {
                 Text("All").tag(ArchitectureLessonTrack?.none)
@@ -71,13 +107,8 @@ struct ObservationLessonListView: View {
             }
         } else {
             List(model.visibleLessons) { lesson in
-                NavigationLink {
-                    ObservationLessonDetailView(
-                        lesson: lesson,
-                        onToggleBookmark: {
-                            model.toggleBookmark(for: lesson.id)
-                        }
-                    )
+                Button {
+                    model.showDetail(for: lesson)
                 } label: {
                     HStack(spacing: 12) {
                         VStack(alignment: .leading, spacing: 6) {
@@ -100,6 +131,7 @@ struct ObservationLessonListView: View {
                     }
                     .padding(.vertical, 6)
                 }
+                .buttonStyle(.plain)
             }
             .listStyle(.inset)
         }
@@ -118,6 +150,17 @@ struct ObservationLessonListView: View {
         .background(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .fill(Color.green.opacity(0.08))
+        )
+    }
+
+    private var errorBinding: Binding<Bool> {
+        Binding(
+            get: { model.errorMessage != nil },
+            set: { isPresented in
+                if !isPresented {
+                    model.dismissError()
+                }
+            }
         )
     }
 }

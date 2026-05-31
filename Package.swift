@@ -79,5 +79,10 @@ let package = Package(
             dependencies: ["ArchitectureSharedDomain", "MVVMSwiftUIApp"],
             path: "Tests/MVVMSwiftUIAppTests"
         ),
+        .testTarget(
+            name: "ObservationMVVMAppTests",
+            dependencies: ["ArchitectureSharedDomain", "ObservationMVVMApp"],
+            path: "Tests/ObservationMVVMAppTests"
+        ),
     ]
 )

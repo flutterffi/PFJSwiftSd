@@ -28,4 +28,5 @@
 - strengthened the SwiftUI MVVM comparison scaffold with service abstraction and review flow
 - added MVVM-specific tests for service and route synchronization
 - deepened the MVVM comparison app with bookmark persistence and a dedicated bookmarks screen
+- deepened the Observation comparison app with bookmark persistence and dedicated tests
 - added a first project direction for a study dashboard app

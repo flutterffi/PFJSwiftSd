@@ -16,7 +16,7 @@ This matrix tracks the intended comparison set for ArchitecturePlayground.
 | Architecture | Focus | Current Status |
 | --- | --- | --- |
 | MVVM (SwiftUI) | observable view model + passive view | strengthened scaffold + tests |
-| Observation MVVM | modern Observation-based flow | strengthened scaffold |
+| Observation MVVM | modern Observation-based flow | strengthened scaffold + tests |
 | Coordinator + MVVM | route and navigation coordination | strengthened scaffold |
 | Reducer Style | action/state driven feature updates | strengthened scaffold |
 

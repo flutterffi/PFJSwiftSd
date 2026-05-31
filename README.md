@@ -150,6 +150,7 @@ This project practices:
 - stronger MVVM app flow with service, route, and weekly review patterns
 - MVVM-specific tests for service and view-model behavior
 - persisted MVVM bookmark flow with a dedicated bookmarks screen
+- persisted Observation MVVM bookmark flow with matching tests
 
 ## Repository Layout
 

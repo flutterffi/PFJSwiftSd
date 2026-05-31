@@ -94,4 +94,4 @@ The next implementation step should be:
 2. compare the strengthened `ReducerStyleApp` against MVVM and MVC
 3. compare the strengthened `CoordinatorMVVMApp` against plain SwiftUI MVVM and reducer-style navigation
 4. compare the strengthened `MVCApp`, `MVPApp`, `MVVMUIKitApp`, and `VIPERApp` as a UIKit progression set
-5. deepen MVVM with more service and test coverage if it becomes the main learning path
+5. write a direct `ObservableObject` vs `@Observable` comparison note once both tracks feel equally mature
