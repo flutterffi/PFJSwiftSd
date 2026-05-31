@@ -30,4 +30,5 @@
 - deepened the MVVM comparison app with bookmark persistence and a dedicated bookmarks screen
 - deepened the Observation comparison app with bookmark persistence and dedicated tests
 - turned the UIKit architecture tracks into runnable demo targets with comparison tests
+- added a UIKit vs SwiftUI migration training topic with cross-stack tests
 - added a first project direction for a study dashboard app

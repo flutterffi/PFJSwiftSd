@@ -30,6 +30,10 @@ Every architecture should eventually express the same feature scope:
 4. lesson detail
 5. weekly review
 
+## Migration Topic
+
+Use `UIKitToSwiftUIMigration/` when the goal is not only to compare architectures, but to practice how a stable UIKit feature can be moved into SwiftUI step by step.
+
 ## Current Recommended Starting Track
 
 Start with `MVVM (SwiftUI)` if you want the most balanced first comparison target.

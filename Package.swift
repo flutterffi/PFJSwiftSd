@@ -131,5 +131,14 @@ let package = Package(
             ],
             path: "Tests/UIKitArchitectureComparisonTests"
         ),
+        .testTarget(
+            name: "UIKitSwiftUIMigrationTests",
+            dependencies: [
+                "ArchitectureSharedDomain",
+                "MVVMUIKitApp",
+                "MVVMSwiftUIApp",
+            ],
+            path: "Tests/UIKitSwiftUIMigrationTests"
+        ),
     ]
 )

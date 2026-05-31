@@ -36,6 +36,10 @@ This keeps the comparison focused on architecture instead of changing product sc
 - Coordinator + MVVM
 - reducer-style or TCA-style flow
 
+## Migration Topic
+
+There is now a dedicated `UIKitToSwiftUIMigration/` topic for comparing how the same feature moves from `MVVMUIKitApp` into `MVVMSwiftUIApp` and then into `ObservationMVVMApp`.
+
 ## Folder Structure
 
 ```text
@@ -89,6 +93,7 @@ Run them like this:
 
 ```bash
 swift test --filter UIKitArchitectureComparisonTests
+swift test --filter UIKitSwiftUIMigrationTests
 ```
 
 ## Good Expansion Rule
