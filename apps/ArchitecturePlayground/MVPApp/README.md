@@ -32,3 +32,11 @@ The first scaffold includes:
 - routing protocol for detail navigation
 
 This gives the MVP track a clearer contrast against MVC by moving formatting and interaction flow into the presenter layer.
+
+## Runnable Demo
+
+You can now run the MVP comparison flow directly:
+
+```bash
+swift run MVPApp
+```

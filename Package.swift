@@ -20,6 +20,22 @@ let package = Package(
             targets: ["FoundationsRunner"]
         ),
         .executable(
+            name: "MVCApp",
+            targets: ["MVCApp"]
+        ),
+        .executable(
+            name: "MVPApp",
+            targets: ["MVPApp"]
+        ),
+        .executable(
+            name: "MVVMUIKitApp",
+            targets: ["MVVMUIKitApp"]
+        ),
+        .executable(
+            name: "VIPERApp",
+            targets: ["VIPERApp"]
+        ),
+        .executable(
             name: "StudyDashboardApp",
             targets: ["StudyDashboardApp"]
         ),
@@ -55,6 +71,26 @@ let package = Package(
             path: "Sources/FoundationsRunner"
         ),
         .executableTarget(
+            name: "MVCApp",
+            dependencies: ["ArchitectureSharedDomain"],
+            path: "apps/ArchitecturePlayground/MVCApp/Sources"
+        ),
+        .executableTarget(
+            name: "MVPApp",
+            dependencies: ["ArchitectureSharedDomain"],
+            path: "apps/ArchitecturePlayground/MVPApp/Sources"
+        ),
+        .executableTarget(
+            name: "MVVMUIKitApp",
+            dependencies: ["ArchitectureSharedDomain"],
+            path: "apps/ArchitecturePlayground/MVVMUIKitApp/Sources"
+        ),
+        .executableTarget(
+            name: "VIPERApp",
+            dependencies: ["ArchitectureSharedDomain"],
+            path: "apps/ArchitecturePlayground/VIPERApp/Sources"
+        ),
+        .executableTarget(
             name: "StudyDashboardApp",
             dependencies: ["StudyDashboardFeatureCore"],
             path: "apps/StudyDashboardApp/Sources"
@@ -83,6 +119,17 @@ let package = Package(
             name: "ObservationMVVMAppTests",
             dependencies: ["ArchitectureSharedDomain", "ObservationMVVMApp"],
             path: "Tests/ObservationMVVMAppTests"
+        ),
+        .testTarget(
+            name: "UIKitArchitectureComparisonTests",
+            dependencies: [
+                "ArchitectureSharedDomain",
+                "MVCApp",
+                "MVPApp",
+                "MVVMUIKitApp",
+                "VIPERApp",
+            ],
+            path: "Tests/UIKitArchitectureComparisonTests"
         ),
     ]
 )

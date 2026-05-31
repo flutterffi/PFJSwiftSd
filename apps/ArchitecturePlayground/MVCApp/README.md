@@ -45,3 +45,11 @@ This now covers:
 - detail view state preparation
 
 That makes the MVC track a stronger contrast against the existing MVVM SwiftUI implementation.
+
+## Runnable Demo
+
+You can now run the MVC comparison flow directly:
+
+```bash
+swift run MVCApp
+```

@@ -62,6 +62,13 @@ These give a strong contrast without making the repository too large too early.
 
 The broader comparison set is now scaffolded so the repository can grow architecture training incrementally instead of reinventing each track later.
 
+The UIKit group is now runnable from Terminal as four separate demo targets:
+
+- `swift run MVCApp`
+- `swift run MVPApp`
+- `swift run MVVMUIKitApp`
+- `swift run VIPERApp`
+
 ## Comparison Questions
 
 Every architecture variant should help answer:
@@ -71,6 +78,18 @@ Every architecture variant should help answer:
 3. how are dependencies injected?
 4. how hard is testing?
 5. what grows painful first?
+
+## Verification
+
+UIKit architecture comparison tests now live in:
+
+- `Tests/UIKitArchitectureComparisonTests/`
+
+Run them like this:
+
+```bash
+swift test --filter UIKitArchitectureComparisonTests
+```
 
 ## Good Expansion Rule
 

@@ -32,3 +32,11 @@ The first scaffold now includes:
 - compact module builder shell
 
 This makes VIPER a stronger comparison point against MVC and MVP by making role boundaries more explicit.
+
+## Runnable Demo
+
+You can now run the VIPER comparison flow directly:
+
+```bash
+swift run VIPERApp
+```

@@ -27,3 +27,11 @@ The first scaffold now includes:
 - weekly summary formatting
 
 This makes UIKit MVVM a stronger comparison point between MVC/MVP and the SwiftUI MVVM track.
+
+## Runnable Demo
+
+You can now run the UIKit MVVM comparison flow directly:
+
+```bash
+swift run MVVMUIKitApp
+```

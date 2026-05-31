@@ -151,6 +151,7 @@ This project practices:
 - MVVM-specific tests for service and view-model behavior
 - persisted MVVM bookmark flow with a dedicated bookmarks screen
 - persisted Observation MVVM bookmark flow with matching tests
+- runnable UIKit architecture demos with comparison tests
 
 ## Repository Layout
 
@@ -177,6 +178,10 @@ swift foundations/03_enums_structs_and_methods.swift
 swift foundations/04_collection_transformations.swift
 swift run FoundationsRunner list
 swift run FoundationsRunner 01
+swift run MVCApp
+swift run MVPApp
+swift run MVVMUIKitApp
+swift run VIPERApp
 swift language/01_value_semantics_and_copy_on_write.swift
 swift language/02_protocols_generics_and_type_erasure.swift
 swift concurrency/01_async_await_and_task_group.swift
@@ -193,9 +198,12 @@ swiftc \
 
 swift test --filter StudyDashboardFeatureCoreTests
 swift test --filter MVVMSwiftUIAppTests
+swift test --filter ObservationMVVMAppTests
+swift test --filter UIKitArchitectureComparisonTests
 
 swift build --product StudyDashboardApp
 swift build --product MVVMSwiftUIApp
+swift build --product ObservationMVVMApp
 ```
 
 If SwiftPM is blocked by a restricted sandbox, run `swift test` and `swift build` in a normal local Terminal session.

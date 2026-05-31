@@ -6,10 +6,10 @@ This matrix tracks the intended comparison set for ArchitecturePlayground.
 
 | Architecture | Focus | Current Status |
 | --- | --- | --- |
-| MVC | controller-driven flow | scaffolded |
-| MVP | presenter-driven flow | strengthened scaffold |
-| MVVM (UIKit) | view model over UIKit-style state updates | strengthened scaffold |
-| VIPER | highly separated responsibilities | strengthened scaffold |
+| MVC | controller-driven flow | runnable demo + tests |
+| MVP | presenter-driven flow | runnable demo + tests |
+| MVVM (UIKit) | view model over UIKit-style state updates | runnable demo + tests |
+| VIPER | highly separated responsibilities | runnable demo + tests |
 
 ## SwiftUI-Oriented Tracks
 
