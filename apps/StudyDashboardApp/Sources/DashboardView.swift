@@ -92,31 +92,43 @@ struct DashboardView: View {
             }
         } else {
             List(viewModel.state.visibleLessons) { lesson in
-                HStack(spacing: 12) {
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(lesson.title)
-                            .font(.headline)
-                        HStack(spacing: 8) {
-                            Text(lesson.track.rawValue.uppercased())
-                                .font(.caption.weight(.semibold))
-                                .foregroundStyle(.blue)
-                            Text("\(lesson.estimatedMinutes) min")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                NavigationLink {
+                    LessonDetailView(
+                        lesson: lesson,
+                        isBookmarked: viewModel.state.bookmarkedLessonIDs.contains(lesson.id),
+                        onToggleBookmark: {
+                            Task {
+                                await viewModel.toggleBookmark(for: lesson.id)
+                            }
                         }
-                    }
-
-                    Spacer()
-
-                    Button {
-                        Task {
-                            await viewModel.toggleBookmark(for: lesson.id)
+                    )
+                } label: {
+                    HStack(spacing: 12) {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text(lesson.title)
+                                .font(.headline)
+                            HStack(spacing: 8) {
+                                Text(lesson.track.rawValue.uppercased())
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(.blue)
+                                Text("\(lesson.estimatedMinutes) min")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
-                    } label: {
-                        Image(systemName: viewModel.state.bookmarkedLessonIDs.contains(lesson.id) ? "star.fill" : "star")
-                            .foregroundStyle(.yellow)
+
+                        Spacer()
+
+                        Button {
+                            Task {
+                                await viewModel.toggleBookmark(for: lesson.id)
+                            }
+                        } label: {
+                            Image(systemName: viewModel.state.bookmarkedLessonIDs.contains(lesson.id) ? "star.fill" : "star")
+                                .foregroundStyle(.yellow)
+                        }
+                        .buttonStyle(.plain)
                     }
-                    .buttonStyle(.plain)
                 }
                 .padding(.vertical, 6)
             }

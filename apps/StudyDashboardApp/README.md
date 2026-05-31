@@ -8,6 +8,7 @@ StudyDashboardApp is a minimal macOS SwiftUI shell that reuses the dashboard cor
 - search
 - track filtering
 - bookmark toggling
+- lesson detail navigation
 - loading and empty states
 
 ## Build

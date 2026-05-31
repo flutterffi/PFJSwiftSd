@@ -11,4 +11,5 @@
 - added runnable store and persistence verification scripts
 - added a minimal SwiftUI app shell backed by the dashboard core
 - upgraded dashboard verification to a standard SwiftPM/XCTest test target
+- added a lesson detail flow to the SwiftUI app shell
 - added a first project direction for a study dashboard app

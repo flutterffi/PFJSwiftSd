@@ -133,6 +133,7 @@ This project practices:
 - search and bookmark workflows
 - local persistence for lightweight app state
 - standard SwiftPM tests for domain and persistence logic
+- simple lesson detail navigation in SwiftUI
 - preparing for a multi-screen SwiftUI app
 
 ## Repository Layout
