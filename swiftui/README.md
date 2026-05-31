@@ -2,6 +2,11 @@
 
 The `swiftui/` folder moves from view composition into feature-level UI design.
 
+Official planning companions:
+
+- [Official Learning Links](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/OFFICIAL_LEARNING_LINKS.md)
+- [Official Alignment Plan](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/OFFICIAL_ALIGNMENT_PLAN.md)
+
 Suggested order:
 
 1. `00_view_composition_and_modifiers.swift`
@@ -26,3 +31,10 @@ Good edits to try:
 - add a selected row state
 - push from the list into a detail screen
 - show an error state in the async example
+
+Next recommended additions for stronger official alignment:
+
+- layout and grid lessons
+- Observation-based data flow
+- searchable and toolbar lessons
+- animation and transition lessons

@@ -12,4 +12,7 @@
 - added a minimal SwiftUI app shell backed by the dashboard core
 - upgraded dashboard verification to a standard SwiftPM/XCTest test target
 - added a lesson detail flow to the SwiftUI app shell
+- added official alignment and curriculum roadmap documents
+- added a v2 architecture and implementation upgrade plan
+- added the first runnable FoundationsRunner entry point
 - added a first project direction for a study dashboard app

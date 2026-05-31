@@ -12,6 +12,10 @@ let package = Package(
             targets: ["StudyDashboardFeatureCore"]
         ),
         .executable(
+            name: "FoundationsRunner",
+            targets: ["FoundationsRunner"]
+        ),
+        .executable(
             name: "StudyDashboardApp",
             targets: ["StudyDashboardApp"]
         ),
@@ -26,6 +30,10 @@ let package = Package(
                 "study_dashboard_feature.swift",
                 "tests",
             ]
+        ),
+        .executableTarget(
+            name: "FoundationsRunner",
+            path: "Sources/FoundationsRunner"
         ),
         .executableTarget(
             name: "StudyDashboardApp",

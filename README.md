@@ -13,6 +13,13 @@ The goal is simple:
 
 Use [OFFICIAL_LEARNING_LINKS.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/OFFICIAL_LEARNING_LINKS.md) as the central index for Swift, SwiftUI, and Xcode documentation from Swift.org and Apple Developer.
 
+For curriculum planning and official-gap analysis, also use:
+
+- [OFFICIAL_ALIGNMENT_PLAN.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/OFFICIAL_ALIGNMENT_PLAN.md)
+- [STUDY_SYSTEM_ROADMAP.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/STUDY_SYSTEM_ROADMAP.md)
+- [V2_ARCHITECTURE_UPGRADE_PLAN.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/V2_ARCHITECTURE_UPGRADE_PLAN.md)
+- [V2_IMPLEMENTATION_SEQUENCE.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/V2_IMPLEMENTATION_SEQUENCE.md)
+
 ## Learning Path
 
 ### 1. Foundations
@@ -159,6 +166,8 @@ swift foundations/01_constants_variables_and_interpolation.swift
 swift foundations/02_optionals_guard_and_nil_coalescing.swift
 swift foundations/03_enums_structs_and_methods.swift
 swift foundations/04_collection_transformations.swift
+swift run FoundationsRunner list
+swift run FoundationsRunner 01
 swift language/01_value_semantics_and_copy_on_write.swift
 swift language/02_protocols_generics_and_type_erasure.swift
 swift concurrency/01_async_await_and_task_group.swift
@@ -209,3 +218,10 @@ For concentrated reading sessions, keep these two pages side by side:
 
 - [foundations/README.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/foundations/README.md)
 - [docs/OFFICIAL_LEARNING_LINKS.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/OFFICIAL_LEARNING_LINKS.md)
+
+For repository expansion and long-term study planning, use:
+
+- [docs/OFFICIAL_ALIGNMENT_PLAN.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/OFFICIAL_ALIGNMENT_PLAN.md)
+- [docs/STUDY_SYSTEM_ROADMAP.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/STUDY_SYSTEM_ROADMAP.md)
+- [docs/V2_ARCHITECTURE_UPGRADE_PLAN.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/V2_ARCHITECTURE_UPGRADE_PLAN.md)
+- [docs/V2_IMPLEMENTATION_SEQUENCE.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/docs/V2_IMPLEMENTATION_SEQUENCE.md)
