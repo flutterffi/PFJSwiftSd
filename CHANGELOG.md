@@ -15,4 +15,14 @@
 - added official alignment and curriculum roadmap documents
 - added a v2 architecture and implementation upgrade plan
 - added the first runnable FoundationsRunner entry point
+- added an ArchitecturePlayground scaffold for app architecture comparison training
+- added the first MVVM SwiftUI comparison app scaffold
+- scaffolded the remaining architecture comparison tracks
+- strengthened the MVC comparison scaffold with view-state and routing shells
+- strengthened the reducer-style comparison scaffold with store and detail state
+- strengthened the Observation MVVM comparison scaffold with list and detail shells
+- strengthened the MVP comparison scaffold with presenter-driven view state and routing
+- strengthened the VIPER comparison scaffold with presenter, interactor, and routing roles
+- strengthened the UIKit MVVM comparison scaffold with list and detail view state
+- strengthened the coordinator comparison scaffold with route and view-state support
 - added a first project direction for a study dashboard app

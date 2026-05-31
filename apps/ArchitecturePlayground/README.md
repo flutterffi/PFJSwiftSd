@@ -1,0 +1,95 @@
+# ArchitecturePlayground
+
+ArchitecturePlayground is the comparison-training area for app architectures in PFJSwiftSd.
+
+The core idea is simple:
+
+- use the same feature requirements
+- implement them with different architectures
+- compare structure, navigation, state flow, and testing tradeoffs
+
+## Shared Training Feature Set
+
+Every architecture variant should aim to support the same learning scope:
+
+1. lesson list
+2. search and filtering
+3. bookmark toggle
+4. lesson detail
+5. weekly review summary
+
+This keeps the comparison focused on architecture instead of changing product scope.
+
+## Recommended Architecture Tracks
+
+### UIKit-oriented comparison
+
+- MVC
+- MVP
+- MVVM (UIKit)
+- VIPER
+
+### SwiftUI-oriented comparison
+
+- MVVM (SwiftUI)
+- Observation-based MVVM
+- Coordinator + MVVM
+- reducer-style or TCA-style flow
+
+## Folder Structure
+
+```text
+ArchitecturePlayground/
+  SharedDomain/
+  MVCApp/
+  MVPApp/
+  MVVMUIKitApp/
+  MVVMSwiftUIApp/
+  VIPERApp/
+  ObservationMVVMApp/
+  CoordinatorMVVMApp/
+  ReducerStyleApp/
+  docs/
+```
+
+The first phase starts with:
+
+- `SharedDomain`
+- `MVCApp`
+- `MVVMSwiftUIApp`
+
+These give a strong contrast without making the repository too large too early.
+
+The broader comparison set is now scaffolded so the repository can grow architecture training incrementally instead of reinventing each track later.
+
+## Comparison Questions
+
+Every architecture variant should help answer:
+
+1. where does state live?
+2. how does navigation work?
+3. how are dependencies injected?
+4. how hard is testing?
+5. what grows painful first?
+
+## Good Expansion Rule
+
+Add a new architecture only when:
+
+- it reuses the shared feature set
+- it documents the tradeoffs clearly
+- it adds a real comparison value
+
+## Current Phase
+
+This directory currently defines the training structure and the shared domain model.
+
+The next implementation step should be:
+
+1. compare the strengthened `MVCApp` against the existing `MVVMSwiftUIApp`
+2. compare the strengthened `ReducerStyleApp` against MVVM and MVC
+3. compare the strengthened `ObservationMVVMApp` against classic MVVM
+4. compare the strengthened `MVPApp` against MVC
+5. compare the strengthened `VIPERApp` against MVC and MVP
+6. compare the strengthened `MVVMUIKitApp` against MVC, MVP, and SwiftUI MVVM
+7. compare the strengthened `CoordinatorMVVMApp` against plain SwiftUI MVVM and reducer-style navigation

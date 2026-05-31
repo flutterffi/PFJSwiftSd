@@ -11,6 +11,10 @@ let package = Package(
             name: "StudyDashboardFeatureCore",
             targets: ["StudyDashboardFeatureCore"]
         ),
+        .library(
+            name: "ArchitectureSharedDomain",
+            targets: ["ArchitectureSharedDomain"]
+        ),
         .executable(
             name: "FoundationsRunner",
             targets: ["FoundationsRunner"]
@@ -18,6 +22,14 @@ let package = Package(
         .executable(
             name: "StudyDashboardApp",
             targets: ["StudyDashboardApp"]
+        ),
+        .executable(
+            name: "MVVMSwiftUIApp",
+            targets: ["MVVMSwiftUIApp"]
+        ),
+        .executable(
+            name: "ObservationMVVMApp",
+            targets: ["ObservationMVVMApp"]
         ),
     ],
     targets: [
@@ -31,6 +43,13 @@ let package = Package(
                 "tests",
             ]
         ),
+        .target(
+            name: "ArchitectureSharedDomain",
+            path: "apps/ArchitecturePlayground/SharedDomain",
+            exclude: [
+                "README.md",
+            ]
+        ),
         .executableTarget(
             name: "FoundationsRunner",
             path: "Sources/FoundationsRunner"
@@ -39,6 +58,16 @@ let package = Package(
             name: "StudyDashboardApp",
             dependencies: ["StudyDashboardFeatureCore"],
             path: "apps/StudyDashboardApp/Sources"
+        ),
+        .executableTarget(
+            name: "MVVMSwiftUIApp",
+            dependencies: ["ArchitectureSharedDomain"],
+            path: "apps/ArchitecturePlayground/MVVMSwiftUIApp/Sources"
+        ),
+        .executableTarget(
+            name: "ObservationMVVMApp",
+            dependencies: ["ArchitectureSharedDomain"],
+            path: "apps/ArchitecturePlayground/ObservationMVVMApp/Sources"
         ),
         .testTarget(
             name: "StudyDashboardFeatureCoreTests",

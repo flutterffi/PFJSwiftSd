@@ -131,6 +131,7 @@ The `apps/` folder turns reusable training logic into a minimal runnable SwiftUI
 Current app:
 
 1. `StudyDashboardApp`
+2. `ArchitecturePlayground`
 
 This project practices:
 
@@ -142,6 +143,10 @@ This project practices:
 - standard SwiftPM tests for domain and persistence logic
 - simple lesson detail navigation in SwiftUI
 - preparing for a multi-screen SwiftUI app
+- cross-architecture app comparison planning
+- first MVVM SwiftUI comparison scaffold in ArchitecturePlayground
+- full architecture comparison matrix scaffold in ArchitecturePlayground
+- stronger Observation and reducer comparison tracks in ArchitecturePlayground
 
 ## Repository Layout
 

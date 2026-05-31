@@ -22,3 +22,7 @@ swift build --product StudyDashboardApp
 ```bash
 swift run StudyDashboardApp
 ```
+
+For architecture comparison training beyond this app, see:
+
+- [/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/apps/ArchitecturePlayground/README.md](/Users/platojobs/Desktop/Github/flutterffi/PFJSwiftSd/apps/ArchitecturePlayground/README.md)
