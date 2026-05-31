@@ -7,9 +7,14 @@ import ArchitectureSharedDomain
 final class MVVMLessonListViewModel: ObservableObject {
     @Published private(set) var lessons: [ArchitectureLesson]
     @Published var filter = ArchitectureLessonFilter()
+    @Published var path: [MVVMRoute] = []
+    @Published var activeSheet: MVVMSheetRoute?
 
-    init(lessons: [ArchitectureLesson] = SharedLessonDomain.sampleLessons()) {
-        self.lessons = lessons
+    private let service: MVVMLessonService
+
+    init(service: MVVMLessonService = InMemoryMVVMLessonService()) {
+        self.service = service
+        self.lessons = service.loadLessons()
     }
 
     var visibleLessons: [ArchitectureLesson] {
@@ -21,18 +26,28 @@ final class MVVMLessonListViewModel: ObservableObject {
     }
 
     func toggleBookmark(for lessonID: UUID) {
-        lessons = lessons.map { lesson in
-            guard lesson.id == lessonID else {
-                return lesson
-            }
+        lessons = service.toggleBookmark(in: lessons, lessonID: lessonID)
+        syncActiveDetailRoute(for: lessonID)
+    }
 
-            return ArchitectureLesson(
-                id: lesson.id,
-                title: lesson.title,
-                track: lesson.track,
-                estimatedMinutes: lesson.estimatedMinutes,
-                isBookmarked: !lesson.isBookmarked
-            )
+    func showDetail(for lesson: ArchitectureLesson) {
+        path.append(.detail(lesson))
+    }
+
+    func showWeeklyReview() {
+        activeSheet = .weeklyReview
+    }
+
+    private func syncActiveDetailRoute(for lessonID: UUID) {
+        guard let index = path.lastIndex(where: {
+            if case let .detail(lesson) = $0 {
+                return lesson.id == lessonID
+            }
+            return false
+        }), let updated = lessons.first(where: { $0.id == lessonID }) else {
+            return
         }
+
+        path[index] = .detail(updated)
     }
 }

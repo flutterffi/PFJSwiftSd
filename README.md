@@ -147,6 +147,8 @@ This project practices:
 - first MVVM SwiftUI comparison scaffold in ArchitecturePlayground
 - full architecture comparison matrix scaffold in ArchitecturePlayground
 - stronger Observation and reducer comparison tracks in ArchitecturePlayground
+- stronger MVVM app flow with service, route, and weekly review patterns
+- MVVM-specific tests for service and view-model behavior
 
 ## Repository Layout
 
@@ -188,8 +190,10 @@ swiftc \
 ./.build/study_dashboard_feature
 
 swift test --filter StudyDashboardFeatureCoreTests
+swift test --filter MVVMSwiftUIAppTests
 
 swift build --product StudyDashboardApp
+swift build --product MVVMSwiftUIApp
 ```
 
 If SwiftPM is blocked by a restricted sandbox, run `swift test` and `swift build` in a normal local Terminal session.

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct BookmarkPersistence {
+public struct BookmarkPersistence: Sendable {
     public let fileURL: URL
 
     public init(fileURL: URL) {

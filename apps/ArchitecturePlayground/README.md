@@ -84,12 +84,14 @@ Add a new architecture only when:
 
 This directory currently defines the training structure and the shared domain model.
 
+If you want one starting point instead of the whole matrix, begin with `MVVMSwiftUIApp`.
+It currently has the strongest mix of shared domain reuse, SwiftUI flow, service abstraction,
+navigation state, weekly review UI, and dedicated tests.
+
 The next implementation step should be:
 
-1. compare the strengthened `MVCApp` against the existing `MVVMSwiftUIApp`
+1. compare the strengthened `MVVMSwiftUIApp` against `ObservationMVVMApp`
 2. compare the strengthened `ReducerStyleApp` against MVVM and MVC
-3. compare the strengthened `ObservationMVVMApp` against classic MVVM
-4. compare the strengthened `MVPApp` against MVC
-5. compare the strengthened `VIPERApp` against MVC and MVP
-6. compare the strengthened `MVVMUIKitApp` against MVC, MVP, and SwiftUI MVVM
-7. compare the strengthened `CoordinatorMVVMApp` against plain SwiftUI MVVM and reducer-style navigation
+3. compare the strengthened `CoordinatorMVVMApp` against plain SwiftUI MVVM and reducer-style navigation
+4. compare the strengthened `MVCApp`, `MVPApp`, `MVVMUIKitApp`, and `VIPERApp` as a UIKit progression set
+5. deepen MVVM with more service and test coverage if it becomes the main learning path

@@ -25,4 +25,6 @@
 - strengthened the VIPER comparison scaffold with presenter, interactor, and routing roles
 - strengthened the UIKit MVVM comparison scaffold with list and detail view state
 - strengthened the coordinator comparison scaffold with route and view-state support
+- strengthened the SwiftUI MVVM comparison scaffold with service abstraction and review flow
+- added MVVM-specific tests for service and route synchronization
 - added a first project direction for a study dashboard app

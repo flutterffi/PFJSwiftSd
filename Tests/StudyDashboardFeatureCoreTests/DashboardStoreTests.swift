@@ -25,12 +25,12 @@ final class DashboardStoreTests: XCTestCase {
 
     func testBookmarkTogglePersistsState() async {
         let lessonID = makeSampleLessons()[4].id
-        var savedBookmarks: Set<UUID> = []
+        let recorder = SavedBookmarksRecorder()
 
         var store = DashboardStore(
             environment: makeInMemoryEnvironment(
                 saveHandler: { bookmarks in
-                    savedBookmarks = bookmarks
+                    await recorder.record(bookmarks)
                 }
             )
         )
@@ -39,6 +39,7 @@ final class DashboardStoreTests: XCTestCase {
         await store.send(.bookmarkToggled(lessonID))
 
         XCTAssertTrue(store.state.bookmarkedLessonIDs.contains(lessonID))
+        let savedBookmarks = await recorder.bookmarks
         XCTAssertTrue(savedBookmarks.contains(lessonID))
     }
 
@@ -86,7 +87,7 @@ final class DashboardStoreTests: XCTestCase {
 private func makeInMemoryEnvironment(
     lessons: [Lesson] = makeSampleLessons(),
     initialBookmarks: Set<UUID> = [],
-    saveHandler: @escaping (Set<UUID>) throws -> Void = { _ in }
+    saveHandler: @escaping @Sendable (Set<UUID>) async throws -> Void = { _ in }
 ) -> DashboardEnvironment {
     DashboardEnvironment(
         fetchLessons: {
@@ -95,6 +96,16 @@ private func makeInMemoryEnvironment(
         loadBookmarks: {
             initialBookmarks
         },
-        saveBookmarks: saveHandler
+        saveBookmarks: { bookmarks in
+            try await saveHandler(bookmarks)
+        }
     )
+}
+
+private actor SavedBookmarksRecorder {
+    private(set) var bookmarks: Set<UUID> = []
+
+    func record(_ bookmarks: Set<UUID>) {
+        self.bookmarks = bookmarks
+    }
 }

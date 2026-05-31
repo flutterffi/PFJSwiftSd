@@ -74,5 +74,10 @@ let package = Package(
             dependencies: ["StudyDashboardFeatureCore"],
             path: "Tests/StudyDashboardFeatureCoreTests"
         ),
+        .testTarget(
+            name: "MVVMSwiftUIAppTests",
+            dependencies: ["ArchitectureSharedDomain", "MVVMSwiftUIApp"],
+            path: "Tests/MVVMSwiftUIAppTests"
+        ),
     ]
 )

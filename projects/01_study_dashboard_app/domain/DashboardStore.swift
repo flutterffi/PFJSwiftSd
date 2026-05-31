@@ -1,14 +1,14 @@
 import Foundation
 
-public struct DashboardEnvironment {
-    public var fetchLessons: () async throws -> [Lesson]
-    public var loadBookmarks: () throws -> Set<UUID>
-    public var saveBookmarks: (Set<UUID>) throws -> Void
+public struct DashboardEnvironment: Sendable {
+    public var fetchLessons: @Sendable () async throws -> [Lesson]
+    public var loadBookmarks: @Sendable () throws -> Set<UUID>
+    public var saveBookmarks: @Sendable (Set<UUID>) async throws -> Void
 
     public init(
-        fetchLessons: @escaping () async throws -> [Lesson],
-        loadBookmarks: @escaping () throws -> Set<UUID>,
-        saveBookmarks: @escaping (Set<UUID>) throws -> Void
+        fetchLessons: @escaping @Sendable () async throws -> [Lesson],
+        loadBookmarks: @escaping @Sendable () throws -> Set<UUID>,
+        saveBookmarks: @escaping @Sendable (Set<UUID>) async throws -> Void
     ) {
         self.fetchLessons = fetchLessons
         self.loadBookmarks = loadBookmarks
@@ -16,7 +16,7 @@ public struct DashboardEnvironment {
     }
 }
 
-public struct DashboardStore {
+public struct DashboardStore: Sendable {
     public private(set) var state: DashboardState
     public let environment: DashboardEnvironment
 
@@ -68,7 +68,7 @@ public struct DashboardStore {
             }
 
             do {
-                try environment.saveBookmarks(state.bookmarkedLessonIDs)
+                try await environment.saveBookmarks(state.bookmarkedLessonIDs)
             } catch {
                 state.errorMessage = "Unable to save bookmarks"
             }

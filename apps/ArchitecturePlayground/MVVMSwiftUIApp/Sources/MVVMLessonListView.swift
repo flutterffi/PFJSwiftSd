@@ -15,10 +15,27 @@ struct MVVMLessonListView: View {
             content
         }
         .navigationTitle("MVVM SwiftUI App")
+        .navigationDestination(for: MVVMRoute.self) { route in
+            switch route {
+            case let .detail(lesson):
+                MVVMLessonDetailView(
+                    lesson: lesson,
+                    onToggleBookmark: {
+                        viewModel.toggleBookmark(for: lesson.id)
+                    }
+                )
+            }
+        }
         .searchable(
             text: $viewModel.filter.query,
             prompt: "Search lessons or tracks"
         )
+        .sheet(item: $viewModel.activeSheet) { sheet in
+            switch sheet {
+            case .weeklyReview:
+                MVVMWeeklyReviewView(summary: viewModel.weeklySummary)
+            }
+        }
     }
 
     private var header: some View {
@@ -35,6 +52,11 @@ struct MVVMLessonListView: View {
             Toggle("Bookmarks Only", isOn: $viewModel.filter.bookmarksOnly)
                 .toggleStyle(.switch)
                 .frame(maxWidth: 180)
+
+            Button("Weekly Review") {
+                viewModel.showWeeklyReview()
+            }
+            .buttonStyle(.bordered)
 
             Picker("Track", selection: $viewModel.filter.selectedTrack) {
                 Text("All").tag(ArchitectureLessonTrack?.none)
@@ -70,13 +92,8 @@ struct MVVMLessonListView: View {
             }
         } else {
             List(viewModel.visibleLessons) { lesson in
-                NavigationLink {
-                    MVVMLessonDetailView(
-                        lesson: lesson,
-                        onToggleBookmark: {
-                            viewModel.toggleBookmark(for: lesson.id)
-                        }
-                    )
+                Button {
+                    viewModel.showDetail(for: lesson)
                 } label: {
                     HStack(spacing: 12) {
                         VStack(alignment: .leading, spacing: 6) {
@@ -99,6 +116,7 @@ struct MVVMLessonListView: View {
                     }
                     .padding(.vertical, 6)
                 }
+                .buttonStyle(.plain)
             }
             .listStyle(.inset)
         }

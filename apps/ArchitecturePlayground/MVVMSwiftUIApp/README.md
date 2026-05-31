@@ -38,3 +38,32 @@ The first scaffold now exists with:
 - view model based filtering
 - bookmark toggling
 - lesson detail navigation
+
+The stronger MVVM version now also includes:
+
+- service abstraction
+- route enum driven navigation
+- weekly review sheet
+- bookmark-only workflow through view-model-owned filters
+
+## Verification
+
+MVVM-specific tests now live in:
+
+- `Tests/MVVMSwiftUIAppTests/MVVMLessonServiceTests.swift`
+- `Tests/MVVMSwiftUIAppTests/MVVMLessonListViewModelTests.swift`
+
+Run them like this:
+
+```bash
+swift test --filter MVVMSwiftUIAppTests
+```
+
+If SwiftPM is blocked in a restricted sandbox, run the same command in a normal local Terminal session on macOS.
+
+## Recommended Study Order
+
+1. read `MVVMLessonService.swift` to see where lesson loading and bookmark mutation live
+2. read `MVVMLessonListViewModel.swift` to follow filter, route, and sheet state
+3. open `MVVMLessonListView.swift` and trace how the view stays passive
+4. compare this target with `ObservationMVVMApp` and `ReducerStyleApp`

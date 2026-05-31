@@ -9,7 +9,7 @@ struct MVVMSwiftUIApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
+            NavigationStack(path: $viewModel.path) {
                 MVVMLessonListView(viewModel: viewModel)
             }
             .frame(minWidth: 760, minHeight: 540)

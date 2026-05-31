@@ -15,7 +15,7 @@ This matrix tracks the intended comparison set for ArchitecturePlayground.
 
 | Architecture | Focus | Current Status |
 | --- | --- | --- |
-| MVVM (SwiftUI) | observable view model + passive view | scaffolded |
+| MVVM (SwiftUI) | observable view model + passive view | strengthened scaffold + tests |
 | Observation MVVM | modern Observation-based flow | strengthened scaffold |
 | Coordinator + MVVM | route and navigation coordination | strengthened scaffold |
 | Reducer Style | action/state driven feature updates | strengthened scaffold |
@@ -29,3 +29,13 @@ Every architecture should eventually express the same feature scope:
 3. bookmark toggle
 4. lesson detail
 5. weekly review
+
+## Current Recommended Starting Track
+
+Start with `MVVM (SwiftUI)` if you want the most balanced first comparison target.
+It currently has the clearest combination of:
+
+1. shared feature coverage
+2. route and sheet handling
+3. service abstraction
+4. dedicated XCTest coverage

@@ -1,6 +1,6 @@
 import Foundation
 
-public enum LessonTrack: String, CaseIterable, Codable {
+public enum LessonTrack: String, CaseIterable, Codable, Sendable {
     case foundations
     case language
     case concurrency
@@ -8,7 +8,7 @@ public enum LessonTrack: String, CaseIterable, Codable {
     case architecture
 }
 
-public struct Lesson: Identifiable, Codable, Hashable {
+public struct Lesson: Identifiable, Codable, Hashable, Sendable {
     public let id: UUID
     public let title: String
     public let track: LessonTrack
@@ -22,7 +22,7 @@ public struct Lesson: Identifiable, Codable, Hashable {
     }
 }
 
-public struct DashboardState {
+public struct DashboardState: Sendable {
     public var lessons: [Lesson] = []
     public var isLoading = false
     public var selectedTrack: LessonTrack?
@@ -58,7 +58,7 @@ public struct DashboardState {
     }
 }
 
-public enum DashboardAction {
+public enum DashboardAction: Sendable {
     case loadTapped
     case lessonsLoaded([Lesson])
     case failed(String)
@@ -68,7 +68,7 @@ public enum DashboardAction {
     case bookmarkToggled(UUID)
 }
 
-public enum DashboardStoreError: Error {
+public enum DashboardStoreError: Error, Sendable {
     case loadFailed
     case saveFailed
 }
