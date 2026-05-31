@@ -32,5 +32,10 @@ let package = Package(
             dependencies: ["StudyDashboardFeatureCore"],
             path: "apps/StudyDashboardApp/Sources"
         ),
+        .testTarget(
+            name: "StudyDashboardFeatureCoreTests",
+            dependencies: ["StudyDashboardFeatureCore"],
+            path: "Tests/StudyDashboardFeatureCoreTests"
+        ),
     ]
 )

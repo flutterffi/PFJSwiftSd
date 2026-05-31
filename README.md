@@ -132,7 +132,7 @@ This project practices:
 - splitting screen state from reusable domain logic
 - search and bookmark workflows
 - local persistence for lightweight app state
-- runnable verification for domain and persistence logic
+- standard SwiftPM tests for domain and persistence logic
 - preparing for a multi-screen SwiftUI app
 
 ## Repository Layout
@@ -172,8 +172,12 @@ swiftc \
 
 ./.build/study_dashboard_feature
 
+swift test --filter StudyDashboardFeatureCoreTests
+
 swift build --product StudyDashboardApp
 ```
+
+If SwiftPM is blocked by a restricted sandbox, run `swift test` and `swift build` in a normal local Terminal session.
 
 SwiftUI files are meant to be opened in Xcode and explored inside an Apple platform app target.
 

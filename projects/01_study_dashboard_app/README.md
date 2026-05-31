@@ -51,32 +51,18 @@ swiftc \
 
 ## Verification
 
-The project now has runnable test-style files:
+The project now has a standard SwiftPM test target:
 
-1. `tests/dashboard_store_tests.swift`
-2. `tests/bookmark_persistence_tests.swift`
+1. `Tests/StudyDashboardFeatureCoreTests/DashboardStoreTests.swift`
+2. `Tests/StudyDashboardFeatureCoreTests/BookmarkPersistenceTests.swift`
 
 Run them like this:
 
 ```bash
-swiftc \
-  projects/01_study_dashboard_app/domain/LessonModels.swift \
-  projects/01_study_dashboard_app/domain/DashboardStore.swift \
-  projects/01_study_dashboard_app/persistence/BookmarkPersistence.swift \
-  projects/01_study_dashboard_app/support/SampleData.swift \
-  projects/01_study_dashboard_app/tests/dashboard_store_tests.swift \
-  -o .build/dashboard_store_tests
-
-./.build/dashboard_store_tests
-
-swiftc \
-  projects/01_study_dashboard_app/domain/LessonModels.swift \
-  projects/01_study_dashboard_app/persistence/BookmarkPersistence.swift \
-  projects/01_study_dashboard_app/tests/bookmark_persistence_tests.swift \
-  -o .build/bookmark_persistence_tests
-
-./.build/bookmark_persistence_tests
+swift test --filter StudyDashboardFeatureCoreTests
 ```
+
+If `swift test` is blocked in a restricted sandbox, run the same command in a normal local Terminal session on macOS.
 
 ## SwiftUI App Shell
 
