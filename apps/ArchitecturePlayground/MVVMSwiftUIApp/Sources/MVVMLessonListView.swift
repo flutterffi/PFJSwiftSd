@@ -17,6 +17,8 @@ struct MVVMLessonListView: View {
         .navigationTitle("MVVM SwiftUI App")
         .navigationDestination(for: MVVMRoute.self) { route in
             switch route {
+            case .bookmarks:
+                MVVMBookmarksView(viewModel: viewModel)
             case let .detail(lesson):
                 MVVMLessonDetailView(
                     lesson: lesson,
@@ -36,6 +38,13 @@ struct MVVMLessonListView: View {
                 MVVMWeeklyReviewView(summary: viewModel.weeklySummary)
             }
         }
+        .alert("Bookmark Error", isPresented: errorBinding) {
+            Button("OK", role: .cancel) {
+                viewModel.dismissError()
+            }
+        } message: {
+            Text(viewModel.errorMessage ?? "")
+        }
     }
 
     private var header: some View {
@@ -52,6 +61,11 @@ struct MVVMLessonListView: View {
             Toggle("Bookmarks Only", isOn: $viewModel.filter.bookmarksOnly)
                 .toggleStyle(.switch)
                 .frame(maxWidth: 180)
+
+            Button("Bookmarks") {
+                viewModel.showBookmarks()
+            }
+            .buttonStyle(.bordered)
 
             Button("Weekly Review") {
                 viewModel.showWeeklyReview()
@@ -135,6 +149,17 @@ struct MVVMLessonListView: View {
         .background(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .fill(Color.green.opacity(0.08))
+        )
+    }
+
+    private var errorBinding: Binding<Bool> {
+        Binding(
+            get: { viewModel.errorMessage != nil },
+            set: { isPresented in
+                if !isPresented {
+                    viewModel.dismissError()
+                }
+            }
         )
     }
 }

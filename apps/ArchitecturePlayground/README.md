@@ -86,7 +86,7 @@ This directory currently defines the training structure and the shared domain mo
 
 If you want one starting point instead of the whole matrix, begin with `MVVMSwiftUIApp`.
 It currently has the strongest mix of shared domain reuse, SwiftUI flow, service abstraction,
-navigation state, weekly review UI, and dedicated tests.
+navigation state, bookmarks navigation, persistence, weekly review UI, and dedicated tests.
 
 The next implementation step should be:
 

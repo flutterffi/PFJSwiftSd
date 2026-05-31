@@ -149,6 +149,7 @@ This project practices:
 - stronger Observation and reducer comparison tracks in ArchitecturePlayground
 - stronger MVVM app flow with service, route, and weekly review patterns
 - MVVM-specific tests for service and view-model behavior
+- persisted MVVM bookmark flow with a dedicated bookmarks screen
 
 ## Repository Layout
 

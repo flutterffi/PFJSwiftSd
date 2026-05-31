@@ -42,9 +42,12 @@ The first scaffold now exists with:
 The stronger MVVM version now also includes:
 
 - service abstraction
+- bookmark persistence abstraction
 - route enum driven navigation
+- dedicated bookmarks screen
 - weekly review sheet
 - bookmark-only workflow through view-model-owned filters
+- load/save error messaging
 
 ## Verification
 
@@ -66,4 +69,5 @@ If SwiftPM is blocked in a restricted sandbox, run the same command in a normal 
 1. read `MVVMLessonService.swift` to see where lesson loading and bookmark mutation live
 2. read `MVVMLessonListViewModel.swift` to follow filter, route, and sheet state
 3. open `MVVMLessonListView.swift` and trace how the view stays passive
-4. compare this target with `ObservationMVVMApp` and `ReducerStyleApp`
+4. inspect `MVVMBookmarksView.swift` and `MVVMBookmarkPersistence.swift`
+5. compare this target with `ObservationMVVMApp` and `ReducerStyleApp`

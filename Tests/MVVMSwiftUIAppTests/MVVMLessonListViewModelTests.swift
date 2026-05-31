@@ -15,6 +15,14 @@ final class MVVMLessonListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.path.first, .detail(lesson))
     }
 
+    func testShowBookmarksAppendsRoute() {
+        let viewModel = MVVMLessonListViewModel()
+
+        viewModel.showBookmarks()
+
+        XCTAssertEqual(viewModel.path, [.bookmarks])
+    }
+
     func testShowWeeklyReviewActivatesSheet() {
         let viewModel = MVVMLessonListViewModel()
 
@@ -55,4 +63,36 @@ final class MVVMLessonListViewModelTests: XCTestCase {
 
         XCTAssertEqual(visibleTitles, ["NavigationStack"])
     }
+
+    func testFailingServiceShowsLoadError() {
+        let viewModel = MVVMLessonListViewModel(service: FailingMVVMLessonService())
+
+        XCTAssertEqual(viewModel.errorMessage, "Unable to load saved bookmarks.")
+        XCTAssertFalse(viewModel.lessons.isEmpty)
+    }
+
+    func testFailingServiceShowsSaveError() {
+        let lesson = SharedLessonDomain.sampleLessons()[0]
+        let viewModel = MVVMLessonListViewModel(service: FailingMVVMLessonService())
+        viewModel.dismissError()
+
+        viewModel.toggleBookmark(for: lesson.id)
+
+        XCTAssertEqual(viewModel.errorMessage, "Unable to save bookmarks.")
+    }
+}
+
+private struct FailingMVVMLessonService: MVVMLessonService {
+    func loadLessons() throws -> [ArchitectureLesson] {
+        throw MVVMTestError.loadFailed
+    }
+
+    func toggleBookmark(in lessons: [ArchitectureLesson], lessonID: UUID) throws -> [ArchitectureLesson] {
+        throw MVVMTestError.saveFailed
+    }
+}
+
+private enum MVVMTestError: Error {
+    case loadFailed
+    case saveFailed
 }

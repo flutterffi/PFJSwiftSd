@@ -4,6 +4,7 @@ import ArchitectureSharedDomain
 #endif
 
 enum MVVMRoute: Hashable {
+    case bookmarks
     case detail(ArchitectureLesson)
 }
 

@@ -5,7 +5,13 @@ import ArchitectureSharedDomain
 
 @main
 struct MVVMSwiftUIApp: App {
-    @StateObject private var viewModel = MVVMLessonListViewModel()
+    @StateObject private var viewModel = MVVMLessonListViewModel(
+        service: PersistedMVVMLessonService(
+            persistence: MVVMBookmarkPersistence(
+                fileURL: Self.defaultBookmarksFileURL()
+            )
+        )
+    )
 
     var body: some Scene {
         WindowGroup {
@@ -14,5 +20,12 @@ struct MVVMSwiftUIApp: App {
             }
             .frame(minWidth: 760, minHeight: 540)
         }
+    }
+
+    private static func defaultBookmarksFileURL() -> URL {
+        let baseDirectory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
+            ?? FileManager.default.homeDirectoryForCurrentUser
+        let appDirectory = baseDirectory.appendingPathComponent("PFJSwiftSd/MVVMSwiftUIApp", isDirectory: true)
+        return appDirectory.appendingPathComponent("bookmarks.json")
     }
 }

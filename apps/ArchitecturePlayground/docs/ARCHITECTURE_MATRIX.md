@@ -38,4 +38,5 @@ It currently has the clearest combination of:
 1. shared feature coverage
 2. route and sheet handling
 3. service abstraction
-4. dedicated XCTest coverage
+4. bookmark persistence and dedicated bookmarks flow
+5. dedicated XCTest coverage
