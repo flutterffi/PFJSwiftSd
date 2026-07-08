@@ -153,6 +153,7 @@ This project practices:
 - persisted Observation MVVM bookmark flow with matching tests
 - runnable UIKit architecture demos with comparison tests
 - UIKit to SwiftUI migration training topic with cross-stack comparison tests
+- MVVM vs Observation comparison topic with cross-implementation tests
 
 ## Repository Layout
 
@@ -202,6 +203,7 @@ swift test --filter MVVMSwiftUIAppTests
 swift test --filter ObservationMVVMAppTests
 swift test --filter UIKitArchitectureComparisonTests
 swift test --filter UIKitSwiftUIMigrationTests
+swift test --filter MVVMObservationComparisonTests
 
 swift build --product StudyDashboardApp
 swift build --product MVVMSwiftUIApp

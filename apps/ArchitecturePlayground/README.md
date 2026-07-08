@@ -40,6 +40,10 @@ This keeps the comparison focused on architecture instead of changing product sc
 
 There is now a dedicated `UIKitToSwiftUIMigration/` topic for comparing how the same feature moves from `MVVMUIKitApp` into `MVVMSwiftUIApp` and then into `ObservationMVVMApp`.
 
+## SwiftUI State Topic
+
+There is also a dedicated `MVVMVsObservation/` topic for comparing classic `ObservableObject` MVVM against `@Observable`-based state with the same shared feature.
+
 ## Folder Structure
 
 ```text
@@ -94,6 +98,7 @@ Run them like this:
 ```bash
 swift test --filter UIKitArchitectureComparisonTests
 swift test --filter UIKitSwiftUIMigrationTests
+swift test --filter MVVMObservationComparisonTests
 ```
 
 ## Good Expansion Rule
@@ -118,4 +123,4 @@ The next implementation step should be:
 2. compare the strengthened `ReducerStyleApp` against MVVM and MVC
 3. compare the strengthened `CoordinatorMVVMApp` against plain SwiftUI MVVM and reducer-style navigation
 4. compare the strengthened `MVCApp`, `MVPApp`, `MVVMUIKitApp`, and `VIPERApp` as a UIKit progression set
-5. write a direct `ObservableObject` vs `@Observable` comparison note once both tracks feel equally mature
+5. use `MVVMVsObservation/` to compare classic MVVM and Observation with a stable feature and test baseline

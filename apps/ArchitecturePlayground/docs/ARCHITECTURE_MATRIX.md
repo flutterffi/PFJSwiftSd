@@ -34,6 +34,10 @@ Every architecture should eventually express the same feature scope:
 
 Use `UIKitToSwiftUIMigration/` when the goal is not only to compare architectures, but to practice how a stable UIKit feature can be moved into SwiftUI step by step.
 
+## SwiftUI State Topic
+
+Use `MVVMVsObservation/` when the goal is to compare two modern SwiftUI state-container styles without changing the feature scope.
+
 ## Current Recommended Starting Track
 
 Start with `MVVM (SwiftUI)` if you want the most balanced first comparison target.
