@@ -17,7 +17,7 @@ This matrix tracks the intended comparison set for ArchitecturePlayground.
 | --- | --- | --- |
 | MVVM (SwiftUI) | observable view model + passive view | strengthened scaffold + tests |
 | Observation MVVM | modern Observation-based flow | strengthened scaffold + tests |
-| Coordinator + MVVM | route and navigation coordination | strengthened scaffold |
+| Coordinator + MVVM | route and navigation coordination | runnable demo + tests |
 | Reducer Style | action/state driven feature updates | strengthened scaffold |
 
 ## Shared Feature Set
@@ -37,6 +37,14 @@ Use `UIKitToSwiftUIMigration/` when the goal is not only to compare architecture
 ## SwiftUI State Topic
 
 Use `MVVMVsObservation/` when the goal is to compare two modern SwiftUI state-container styles without changing the feature scope.
+
+## Reducer Topic
+
+Use `MVVMVsReducer/` when the goal is to compare direct view-model mutation with explicit action/state transitions.
+
+## Coordinator Topic
+
+Use `MVVMVsCoordinator/` when the goal is to compare view-model-owned route state with dedicated coordinator-owned navigation.
 
 ## Current Recommended Starting Track
 

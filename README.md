@@ -154,6 +154,8 @@ This project practices:
 - runnable UIKit architecture demos with comparison tests
 - UIKit to SwiftUI migration training topic with cross-stack comparison tests
 - MVVM vs Observation comparison topic with cross-implementation tests
+- MVVM vs Reducer comparison topic with runnable reducer demos and parity tests
+- MVVM vs Coordinator comparison topic with runnable coordinator demos and parity tests
 
 ## Repository Layout
 
@@ -184,6 +186,8 @@ swift run MVCApp
 swift run MVPApp
 swift run MVVMUIKitApp
 swift run VIPERApp
+swift run ReducerStyleApp
+swift run CoordinatorMVVMApp
 swift language/01_value_semantics_and_copy_on_write.swift
 swift language/02_protocols_generics_and_type_erasure.swift
 swift concurrency/01_async_await_and_task_group.swift
@@ -204,6 +208,10 @@ swift test --filter ObservationMVVMAppTests
 swift test --filter UIKitArchitectureComparisonTests
 swift test --filter UIKitSwiftUIMigrationTests
 swift test --filter MVVMObservationComparisonTests
+swift test --filter ReducerStyleAppTests
+swift test --filter MVVMReducerComparisonTests
+swift test --filter CoordinatorMVVMAppTests
+swift test --filter MVVMCoordinatorComparisonTests
 
 swift build --product StudyDashboardApp
 swift build --product MVVMSwiftUIApp

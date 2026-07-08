@@ -24,3 +24,23 @@ The first scaffold now includes:
 - detail selection and detail view-state projection
 
 This makes the reducer-style track a stronger comparison point against both MVC and MVVM.
+
+## Runnable Demo
+
+You can now run the reducer comparison flow directly:
+
+```bash
+swift run ReducerStyleApp
+```
+
+## Verification
+
+Reducer-specific tests now live in:
+
+- `Tests/ReducerStyleAppTests/`
+
+Run them like this:
+
+```bash
+swift test --filter ReducerStyleAppTests
+```

@@ -36,6 +36,14 @@ let package = Package(
             targets: ["VIPERApp"]
         ),
         .executable(
+            name: "ReducerStyleApp",
+            targets: ["ReducerStyleApp"]
+        ),
+        .executable(
+            name: "CoordinatorMVVMApp",
+            targets: ["CoordinatorMVVMApp"]
+        ),
+        .executable(
             name: "StudyDashboardApp",
             targets: ["StudyDashboardApp"]
         ),
@@ -89,6 +97,16 @@ let package = Package(
             name: "VIPERApp",
             dependencies: ["ArchitectureSharedDomain"],
             path: "apps/ArchitecturePlayground/VIPERApp/Sources"
+        ),
+        .executableTarget(
+            name: "ReducerStyleApp",
+            dependencies: ["ArchitectureSharedDomain"],
+            path: "apps/ArchitecturePlayground/ReducerStyleApp/Sources"
+        ),
+        .executableTarget(
+            name: "CoordinatorMVVMApp",
+            dependencies: ["ArchitectureSharedDomain"],
+            path: "apps/ArchitecturePlayground/CoordinatorMVVMApp/Sources"
         ),
         .executableTarget(
             name: "StudyDashboardApp",
@@ -148,6 +166,40 @@ let package = Package(
                 "ObservationMVVMApp",
             ],
             path: "Tests/MVVMObservationComparisonTests"
+        ),
+        .testTarget(
+            name: "ReducerStyleAppTests",
+            dependencies: [
+                "ArchitectureSharedDomain",
+                "ReducerStyleApp",
+            ],
+            path: "Tests/ReducerStyleAppTests"
+        ),
+        .testTarget(
+            name: "MVVMReducerComparisonTests",
+            dependencies: [
+                "ArchitectureSharedDomain",
+                "MVVMSwiftUIApp",
+                "ReducerStyleApp",
+            ],
+            path: "Tests/MVVMReducerComparisonTests"
+        ),
+        .testTarget(
+            name: "CoordinatorMVVMAppTests",
+            dependencies: [
+                "ArchitectureSharedDomain",
+                "CoordinatorMVVMApp",
+            ],
+            path: "Tests/CoordinatorMVVMAppTests"
+        ),
+        .testTarget(
+            name: "MVVMCoordinatorComparisonTests",
+            dependencies: [
+                "ArchitectureSharedDomain",
+                "MVVMSwiftUIApp",
+                "CoordinatorMVVMApp",
+            ],
+            path: "Tests/MVVMCoordinatorComparisonTests"
         ),
     ]
 )

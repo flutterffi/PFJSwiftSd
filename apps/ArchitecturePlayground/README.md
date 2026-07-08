@@ -44,6 +44,14 @@ There is now a dedicated `UIKitToSwiftUIMigration/` topic for comparing how the 
 
 There is also a dedicated `MVVMVsObservation/` topic for comparing classic `ObservableObject` MVVM against `@Observable`-based state with the same shared feature.
 
+## Reducer Topic
+
+There is now a dedicated `MVVMVsReducer/` topic for comparing classic MVVM against explicit reducer-style state management with the same lesson feature.
+
+## Coordinator Topic
+
+There is now a dedicated `MVVMVsCoordinator/` topic for comparing classic MVVM against coordinator-owned navigation with the same lesson feature.
+
 ## Folder Structure
 
 ```text
@@ -76,6 +84,8 @@ The UIKit group is now runnable from Terminal as four separate demo targets:
 - `swift run MVPApp`
 - `swift run MVVMUIKitApp`
 - `swift run VIPERApp`
+- `swift run ReducerStyleApp`
+- `swift run CoordinatorMVVMApp`
 
 ## Comparison Questions
 
@@ -99,6 +109,10 @@ Run them like this:
 swift test --filter UIKitArchitectureComparisonTests
 swift test --filter UIKitSwiftUIMigrationTests
 swift test --filter MVVMObservationComparisonTests
+swift test --filter ReducerStyleAppTests
+swift test --filter MVVMReducerComparisonTests
+swift test --filter CoordinatorMVVMAppTests
+swift test --filter MVVMCoordinatorComparisonTests
 ```
 
 ## Good Expansion Rule

@@ -24,3 +24,23 @@ The first scaffold now includes:
 - detail and review view-state projection
 
 This makes the coordinator track a stronger comparison point for navigation organization inside SwiftUI-oriented architectures.
+
+## Runnable Demo
+
+You can now run the coordinator comparison flow directly:
+
+```bash
+swift run CoordinatorMVVMApp
+```
+
+## Verification
+
+Coordinator-specific tests now live in:
+
+- `Tests/CoordinatorMVVMAppTests/`
+
+Run them like this:
+
+```bash
+swift test --filter CoordinatorMVVMAppTests
+```
